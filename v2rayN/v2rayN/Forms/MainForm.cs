@@ -32,6 +32,7 @@ namespace v2rayN.Forms
             {
                 Utils.ClearTempPath();
             };
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -39,6 +40,9 @@ namespace v2rayN.Forms
             ConfigHandler.LoadConfig(ref config);
             v2rayHandler = new V2rayHandler();
             v2rayHandler.ProcessEvent += v2rayHandler_ProcessEvent;
+
+            this.tsbSubUpdate_Click(sender, e);
+            this.login();
 
         }
 
@@ -55,6 +59,12 @@ namespace v2rayN.Forms
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            for (int k = config.vmess.Count - 1; k  >= 0; k--)
+            {
+                config.vmess.RemoveAt(k);
+            }
+
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
@@ -348,6 +358,13 @@ namespace v2rayN.Forms
                     menuMoveDown_Click(null, null);
                     break;
             }
+        }
+
+        private void login()
+        {
+            LoginForm fm = new LoginForm();
+
+            fm.ShowDialog();
         }
 
         private void menuAddVmessServer_Click(object sender, EventArgs e)
@@ -1281,14 +1298,17 @@ namespace v2rayN.Forms
 
         private void tsbSubUpdate_Click(object sender, EventArgs e)
         {
+            //打出开始订阅
             AppendText(false, UIRes.I18N("MsgUpdateSubscriptionStart"));
 
+            //查找订阅地址
             if (config.subItem == null || config.subItem.Count <= 0)
             {
                 AppendText(false, UIRes.I18N("MsgNoValidSubscription"));
                 return;
             }
 
+            //循环订阅地址, 导入订阅的服务器信息
             for (int k = 1; k <= config.subItem.Count; k++)
             {
                 string id = config.subItem[k - 1].id.Trim();
@@ -1300,6 +1320,7 @@ namespace v2rayN.Forms
                 }
                 if (Utils.IsNullOrEmpty(id) || Utils.IsNullOrEmpty(url))
                 {
+                    //订阅地址无效
                     AppendText(false, $"{hashCode}{UIRes.I18N("MsgNoValidSubscription")}");
                     continue;
                 }
@@ -1366,5 +1387,14 @@ namespace v2rayN.Forms
 
         #endregion
 
+        private void tsbServer_Click(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void tsbPromotion_LocationChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

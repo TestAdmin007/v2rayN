@@ -326,6 +326,7 @@
             this.tsbServer.DropDown = this.cmsLv;
             this.tsbServer.Image = global::v2rayN.Properties.Resources.server;
             this.tsbServer.Name = "tsbServer";
+            this.tsbServer.Click += new System.EventHandler(this.tsbServer_Click);
             // 
             // qrCodeControl
             // 
@@ -626,6 +627,7 @@
             this.tsbPromotion.Image = global::v2rayN.Properties.Resources.promotion;
             this.tsbPromotion.Name = "tsbPromotion";
             this.tsbPromotion.Click += new System.EventHandler(this.tsbPromotion_Click);
+            this.tsbPromotion.LocationChanged += new System.EventHandler(this.tsbPromotion_LocationChanged);
             // 
             // toolStripSeparator11
             // 

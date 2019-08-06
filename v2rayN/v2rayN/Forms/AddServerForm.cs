@@ -289,5 +289,10 @@ namespace v2rayN.Forms
                 panTlsMore.Show();
             }
         }
+
+        private void txtAddress_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

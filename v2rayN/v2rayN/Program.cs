@@ -17,6 +17,7 @@ namespace v2rayN
         [STAThread]
         static void Main()
         {
+            //lvServers.Items.Clear();
             if (Environment.OSVersion.Version.Major >= 6)
             {
                 SetProcessDPIAware();
