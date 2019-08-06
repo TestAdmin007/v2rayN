@@ -780,5 +780,17 @@ namespace v2rayN.Handler
             ToJsonFile(config);
             return 0;
         }
+
+        public static int SaveUserToken(ref Config config, string token)
+        {
+            if (Utils.IsNullOrEmpty(token)) {
+                return -1;
+            }
+
+            config.user.token = token;
+
+            ToJsonFile(config);
+            return 0;
+        }
     }
 }
