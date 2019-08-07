@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -73,15 +74,26 @@
             this.textBox2.TabIndex = 2;
             this.textBox2.UseSystemPasswordChar = true;
             // 
-            // Login
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(24, 169);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(226, 28);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "登录";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Name = "Login";
+            this.Name = "LoginForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +105,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
