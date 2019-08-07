@@ -104,6 +104,11 @@ namespace v2rayN.Mode
         /// </summary>
         public UIItem uiItem { get; set; }
 
+        /// <summary>
+        /// 用户登录后的token
+        /// </summary>
+        public UserConfig user { get; set; }
+
         #region 函数
 
         public string address()
@@ -489,5 +494,24 @@ namespace v2rayN.Mode
         /// </summary>
         public int mainQRCodeWidth { get; set; } = 600;
 
+    }
+
+    [Serializable]
+    public class UserConfig
+    {
+        /// <summary>
+        /// 用户名
+        /// </summary>
+        public string username { get; set; } = "";
+
+        /// <summary>
+        /// 用户密码(加密后的32位字符串)
+        /// </summary>
+        public string password { get; set; } = "";
+
+        /// <summary>
+        /// 用户登录后的token
+        /// </summary>
+        public string token { get; set; } = "";
     }
 }
