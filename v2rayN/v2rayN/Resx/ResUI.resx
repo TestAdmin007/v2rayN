@@ -319,4 +319,13 @@
   <data name="MsgUpdateV2rayCoreSuccessfullyMore" xml:space="preserve">
     <value>Update V2rayCore successfully! Restarting service...</value>
   </data>
+  <data name="MsgLoginEmptyUserName" xml:space="preserve">
+    <value>Please fill in the user name.</value>
+  </data>
+  <data name="MsgLoginEmptyPassword" xml:space="preserve">
+    <value>Please fill in the user password</value>
+  </data>
+  <data name="MsgLoginUserNameAndPasswordNotMatch" xml:space="preserve">
+    <value>User name and password do not match</value>
+  </data>
 </root>

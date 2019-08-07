@@ -319,4 +319,13 @@
   <data name="MsgUpdateV2rayCoreSuccessfullyMore" xml:space="preserve">
     <value>更新V2rayCore成功！正在重启服务...</value>
   </data>
+  <data name="MsgLoginEmptyUserName" xml:space="preserve">
+    <value>请填写用户名</value>
+  </data>
+  <data name="MsgLoginEmptyPassword" xml:space="preserve">
+    <value>请填写密码</value>
+  </data>
+  <data name="MsgLoginUserNameAndPasswordNotMatch" xml:space="preserve">
+    <value>用户名和密码不匹配</value>
+  </data>
 </root>

@@ -404,6 +404,9 @@
   <data name="&gt;&gt;menuPingServer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;menuMoveTop.Name" xml:space="preserve">
+    <value>menuMoveTop</value>
+  </data>
   <data name="menuExport2ShareUrl.Text" xml:space="preserve">
     <value>Batch export share URL to clipboard (multiple choice)</value>
   </data>
@@ -671,8 +674,8 @@
   <data name="tsbOptionSetting.Text" xml:space="preserve">
     <value>Setting</value>
   </data>
-  <data name="&gt;&gt;menuMoveTop.Name" xml:space="preserve">
-    <value>menuMoveTop</value>
+  <data name="&gt;&gt;toolStripButton1.Name" xml:space="preserve">
+    <value>toolStripButton1</value>
   </data>
   <data name="&gt;&gt;menuKeep.Name" xml:space="preserve">
     <value>menuKeep</value>
@@ -759,6 +762,9 @@
   </data>
   <data name="&gt;&gt;tsbClose.Name" xml:space="preserve">
     <value>tsbClose</value>
+  </data>
+  <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuExport2ClientConfig.Name" xml:space="preserve">
     <value>menuExport2ClientConfig</value>
@@ -915,6 +921,9 @@
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>444, 6</value>
+  </data>
+  <data name="toolStripButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 53</value>
   </data>
   <data name="menuSelectAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>447, 22</value>
@@ -1197,7 +1206,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>490</value>
+    <value>250</value>
   </metadata>
   <metadata name="cmsMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>137, 17</value>

@@ -364,6 +364,8 @@ namespace v2rayN.Forms
         {
             LoginForm fm = new LoginForm();
 
+            fm.mainForm = this;
+
             fm.ShowDialog();
         }
 
@@ -1296,7 +1298,7 @@ namespace v2rayN.Forms
             }
         }
 
-        private void tsbSubUpdate_Click(object sender, EventArgs e)
+        public void tsbSubUpdate_Click(object sender, EventArgs e)
         {
             //打出开始订阅
             AppendText(false, UIRes.I18N("MsgUpdateSubscriptionStart"));
@@ -1393,6 +1395,11 @@ namespace v2rayN.Forms
         }
 
         private void tsbPromotion_LocationChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
         }

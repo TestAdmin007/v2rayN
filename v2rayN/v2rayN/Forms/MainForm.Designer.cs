@@ -81,10 +81,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tsMain = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSub = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbSubSetting = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbSubUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbOptionSetting = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbReload = new System.Windows.Forms.ToolStripButton();
@@ -100,7 +98,6 @@
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbLanguageDef = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbLanguageZhHans = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbPromotion = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbClose = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -178,7 +175,6 @@
             this.menuExport2ShareUrl,
             this.menuExport2SubContent});
             this.cmsLv.Name = "cmsLv";
-            this.cmsLv.OwnerItem = this.tsbServer;
             // 
             // menuAddVmessServer
             // 
@@ -478,7 +474,7 @@
             this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbServer,
             this.toolStripSeparator4,
-            this.tsbSub,
+            this.toolStripButton1,
             this.toolStripSeparator8,
             this.tsbOptionSetting,
             this.toolStripSeparator5,
@@ -487,7 +483,6 @@
             this.tsbCheckUpdate,
             this.toolStripSeparator10,
             this.tsbHelp,
-            this.tsbPromotion,
             this.toolStripSeparator11,
             this.tsbClose});
             this.tsMain.Name = "tsMain";
@@ -497,31 +492,17 @@
             resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             // 
-            // tsbSub
-            // 
-            resources.ApplyResources(this.tsbSub, "tsbSub");
-            this.tsbSub.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSubSetting,
-            this.tsbSubUpdate});
-            this.tsbSub.Image = global::v2rayN.Properties.Resources.sub;
-            this.tsbSub.Name = "tsbSub";
-            // 
-            // tsbSubSetting
-            // 
-            resources.ApplyResources(this.tsbSubSetting, "tsbSubSetting");
-            this.tsbSubSetting.Name = "tsbSubSetting";
-            this.tsbSubSetting.Click += new System.EventHandler(this.tsbSubSetting_Click);
-            // 
-            // tsbSubUpdate
-            // 
-            resources.ApplyResources(this.tsbSubUpdate, "tsbSubUpdate");
-            this.tsbSubUpdate.Name = "tsbSubUpdate";
-            this.tsbSubUpdate.Click += new System.EventHandler(this.tsbSubUpdate_Click);
-            // 
             // toolStripSeparator8
             // 
             resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
             this.toolStripSeparator8.Name = "toolStripSeparator8";
+            // 
+            // toolStripButton1
+            // 
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Image = global::v2rayN.Properties.Resources.sub;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.tsbSubUpdate_Click);
             // 
             // tsbOptionSetting
             // 
@@ -619,15 +600,6 @@
             resources.ApplyResources(this.tsbLanguageZhHans, "tsbLanguageZhHans");
             this.tsbLanguageZhHans.Name = "tsbLanguageZhHans";
             this.tsbLanguageZhHans.Click += new System.EventHandler(this.tsbLanguageZhHans_Click);
-            // 
-            // tsbPromotion
-            // 
-            resources.ApplyResources(this.tsbPromotion, "tsbPromotion");
-            this.tsbPromotion.ForeColor = System.Drawing.Color.Black;
-            this.tsbPromotion.Image = global::v2rayN.Properties.Resources.promotion;
-            this.tsbPromotion.Name = "tsbPromotion";
-            this.tsbPromotion.Click += new System.EventHandler(this.tsbPromotion_Click);
-            this.tsbPromotion.LocationChanged += new System.EventHandler(this.tsbPromotion_LocationChanged);
             // 
             // toolStripSeparator11
             // 
@@ -733,10 +705,7 @@
         private System.ComponentModel.BackgroundWorker bgwScan;
         private System.Windows.Forms.ToolStripMenuItem menuScanScreen;
         private System.Windows.Forms.ToolStripMenuItem menuScanScreen2;
-        private System.Windows.Forms.ToolStripDropDownButton tsbSub;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripMenuItem tsbSubSetting;
-        private System.Windows.Forms.ToolStripMenuItem tsbSubUpdate;
         private System.Windows.Forms.ToolStripMenuItem tsbCheckClearPACList;
         private System.Windows.Forms.ToolStripMenuItem menuKeepPAC;
         private System.Windows.Forms.ToolStripMenuItem menuSelectAll;
@@ -744,8 +713,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem tsbLanguageDef;
         private System.Windows.Forms.ToolStripMenuItem tsbLanguageZhHans;
-        private System.Windows.Forms.ToolStripButton tsbPromotion;
         private System.Windows.Forms.ToolStripMenuItem menuAddSocksServer;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
 

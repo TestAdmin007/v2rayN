@@ -19,8 +19,12 @@ namespace v2rayN.Handler
 
         public event EventHandler<ResultEventArgs> UpdateCompleted;
 
+        public event EventHandler<ResultEventArgs> LoginCompleted;
+
         public event ErrorEventHandler Error;
 
+
+ 
         public string DownloadFileName
         {
             get { return "v2ray-windows.zip"; }
@@ -37,6 +41,8 @@ namespace v2rayN.Handler
                 this.Msg = msg;
             }
         }
+
+
 
         private string latestUrl = "https://github.com/v2ray/v2ray-core/releases/latest";
         private const string coreURL = "https://github.com/v2ray/v2ray-core/releases/download/{0}/v2ray-windows-{1}.zip";
@@ -210,5 +216,59 @@ namespace v2rayN.Handler
                     Error(this, new ErrorEventArgs(ex));
             }
         }
+
+        public void WebLogin(string url, string username, string pwd)
+        {
+            string source = string.Empty;
+
+            try
+            {
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072; //TLS 1.2
+                ServicePointManager.DefaultConnectionLimit = 256;
+
+                WebClientEx ws = new WebClientEx();
+
+                var reqParams = new System.Collections.Specialized.NameValueCollection();
+                reqParams.Add("username", username);
+                reqParams.Add("password", pwd);
+
+                ws.UploadValuesCompleted += Ws_login_completed;
+                ws.UploadValuesAsync(new Uri(url), "POST", reqParams);
+
+            }
+            catch (Exception ex)
+            {
+                Utils.SaveLog(ex.Message, ex);
+            }
+        }
+
+        private void Ws_login_completed(object sender, UploadValuesCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error == null
+                    || Utils.IsNullOrEmpty(e.Error.ToString()))
+                {
+                    string source = Encoding.UTF8.GetString(e.Result);
+
+                    if (LoginCompleted != null)
+                    {
+                        LoginCompleted(this, new ResultEventArgs(true, source));
+                    }
+                }
+                else
+                {
+                    throw e.Error;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.SaveLog(ex.Message, ex);
+
+                if (Error != null)
+                    Error(this, new ErrorEventArgs(ex));
+            }
+        }
+
     }
 }

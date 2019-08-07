@@ -41,7 +41,6 @@
             this.text_login_username.Name = "text_login_username";
             this.text_login_username.Size = new System.Drawing.Size(167, 21);
             this.text_login_username.TabIndex = 0;
-            //this.text_login_username.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -52,7 +51,6 @@
             this.label1.Size = new System.Drawing.Size(56, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "用户名:";
-            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -63,7 +61,6 @@
             this.label2.Size = new System.Drawing.Size(56, 14);
             this.label2.TabIndex = 3;
             this.label2.Text = "密  码:";
-            //this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // text_login_password
             // 
@@ -82,9 +79,7 @@
             this.btn_login.TabIndex = 4;
             this.btn_login.Text = "登录";
             this.btn_login.UseVisualStyleBackColor = true;
-            this.btn_login.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // LoginForm
+            this.btn_login.Click += new System.EventHandler(this.btn_login_click);
             // 
             // LoginForm
             // 

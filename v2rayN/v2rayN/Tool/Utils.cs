@@ -17,6 +17,7 @@ using System.Drawing;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
+using System.Security.Cryptography;
 
 namespace v2rayN
 {
@@ -247,6 +248,19 @@ namespace v2rayN
             {
                 return 0;
             }
+        }
+
+        public static string md5(string str)
+        {
+            MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
+            byte[] hashedDataBytes;
+            hashedDataBytes = md5Hasher.ComputeHash(Encoding.GetEncoding("gb2312").GetBytes(str));
+            StringBuilder tmp = new StringBuilder();
+            foreach (byte i in hashedDataBytes)
+            {
+                tmp.Append(i.ToString("x2"));
+            }
+            return tmp.ToString();
         }
 
         #endregion

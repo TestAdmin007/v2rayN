@@ -2,6 +2,7 @@
 using System.Net;
 using v2rayN.Mode;
 using v2rayN.Handler;
+using System.Collections.Specialized;
 
 namespace v2rayN.HttpProxyHandler
 {
@@ -26,10 +27,15 @@ namespace v2rayN.HttpProxyHandler
             var request = base.GetWebRequest(address);
             request.Timeout = Timeout;
 
-            if (config.user.token != null && !Utils.IsNullOrEmpty(config.user.token)) {
+            if (config.user != null && config.user.token != null && !Utils.IsNullOrEmpty(config.user.token)) {
                 request.Headers.Add("Authorization", "Bearer " + config.user.token);
             }
             return request;
+        }
+
+        internal byte[] UploadValuesAsync(string url, string v, NameValueCollection reqParams)
+        {
+            throw new NotImplementedException();
         }
     }
 }

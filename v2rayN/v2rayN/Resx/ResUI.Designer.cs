@@ -367,6 +367,33 @@ namespace v2rayN.Resx {
         }
         
         /// <summary>
+        ///   查找类似 Please fill in the user password 的本地化字符串。
+        /// </summary>
+        internal static string MsgLoginEmptyPassword {
+            get {
+                return ResourceManager.GetString("MsgLoginEmptyPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Please fill in the user name. 的本地化字符串。
+        /// </summary>
+        internal static string MsgLoginEmptyUserName {
+            get {
+                return ResourceManager.GetString("MsgLoginEmptyUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 User name and password do not match 的本地化字符串。
+        /// </summary>
+        internal static string MsgLoginUserNameAndPasswordNotMatch {
+            get {
+                return ResourceManager.GetString("MsgLoginUserNameAndPasswordNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 No valid subscriptions set 的本地化字符串。
         /// </summary>
         internal static string MsgNoValidSubscription {
