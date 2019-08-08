@@ -160,6 +160,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Mode\EMove.cs" />
+    <Compile Include="Mode\SubResponse.cs" />
     <Compile Include="Mode\SysproxyConfig.cs" />
     <Compile Include="Mode\EConfigType.cs" />
     <Compile Include="Resx\ResUI.zh-Hans.Designer.cs">

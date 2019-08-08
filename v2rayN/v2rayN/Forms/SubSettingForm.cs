@@ -41,7 +41,7 @@ namespace v2rayN.Forms
                 {
                     if (!Utils.IsNullOrEmpty(item.id))
                     {
-                        ConfigHandler.RemoveServerViaSubid(ref config, item.id);
+                        ConfigHandler.RemoveServerViaSubid(ref config);
                     }
                     config.subItem.RemoveAt(k);
                 }

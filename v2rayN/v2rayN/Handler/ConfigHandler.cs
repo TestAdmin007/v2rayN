@@ -699,6 +699,7 @@ namespace v2rayN.Handler
             {
                 string msg;
                 VmessItem vmessItem = V2rayConfigHandler.ImportFromClipboardConfig(str, out msg);
+
                 if (vmessItem == null)
                 {
                     continue;
@@ -761,20 +762,20 @@ namespace v2rayN.Handler
         /// 移除服务器
         /// </summary>
         /// <param name="config"></param>
-        /// <param name="subid"></param>
+
         /// <returns></returns>
-        public static int RemoveServerViaSubid(ref Config config, string subid)
+        public static int RemoveServerViaSubid(ref Config config)
         {
-            if (Utils.IsNullOrEmpty(subid) || config.vmess.Count <= 0)
+            if (config.vmess.Count <= 0)
             {
                 return -1;
             }
             for (int k = config.vmess.Count - 1; k >= 0; k--)
             {
-                if (config.vmess[k].subid.Equals(subid))
-                {
+                //if (config.vmess[k].subid.Equals(subid))
+                //{
                     config.vmess.RemoveAt(k);
-                }
+                //}
             }
 
             ToJsonFile(config);

@@ -1304,68 +1304,64 @@ namespace v2rayN.Forms
             AppendText(false, UIRes.I18N("MsgUpdateSubscriptionStart"));
 
             //查找订阅地址
-            if (config.subItem == null || config.subItem.Count <= 0)
-            {
-                AppendText(false, UIRes.I18N("MsgNoValidSubscription"));
-                return;
-            }
+            //if (config.subItem == null || config.subItem.Count <= 0)
+            //{
+            //    AppendText(false, UIRes.I18N("MsgNoValidSubscription"));
+            //    return;
+            //}
 
-            //循环订阅地址, 导入订阅的服务器信息
-            for (int k = 1; k <= config.subItem.Count; k++)
+            V2rayUpdateHandle v2rayUpdateHandle3 = new V2rayUpdateHandle();
+            v2rayUpdateHandle3.UpdateCompleted += (sender2, args) =>
             {
-                string id = config.subItem[k - 1].id.Trim();
-                string url = config.subItem[k - 1].url.Trim();
-                string hashCode = $"{k}->";
-                if (config.subItem[k - 1].enabled == false)
+                if (args.Success)
                 {
-                    continue;
-                }
-                if (Utils.IsNullOrEmpty(id) || Utils.IsNullOrEmpty(url))
-                {
-                    //订阅地址无效
-                    AppendText(false, $"{hashCode}{UIRes.I18N("MsgNoValidSubscription")}");
-                    continue;
-                }
+                    // 获取订阅内容成功
+                    AppendText(false, UIRes.I18N("MsgGetSubscriptionSuccessfully"));
 
-                V2rayUpdateHandle v2rayUpdateHandle3 = new V2rayUpdateHandle();
-                v2rayUpdateHandle3.UpdateCompleted += (sender2, args) =>
-                {
-                    if (args.Success)
+                    SubResponse result = Utils.FromJson<SubResponse>(args.Msg);
+
+                    if (result.status != "SUCCESS") {
+                        Console.WriteLine(result.msg);
+                        Console.WriteLine(UIRes.I18N("MsgSubscriptionDecodingFailed"));
+                        //AppendText(false, result.msg);
+                    }
+
+                    var subData = Utils.Base64Decode(result.data.data);
+                    if (Utils.IsNullOrEmpty(subData))
                     {
-                        AppendText(false, $"{hashCode}{UIRes.I18N("MsgGetSubscriptionSuccessfully")}");
-                        var result = Utils.Base64Decode(args.Msg);
-                        if (Utils.IsNullOrEmpty(result))
-                        {
-                            AppendText(false, $"{hashCode}{UIRes.I18N("MsgSubscriptionDecodingFailed")}");
-                            return;
-                        }
+                        // 解析失败
+                        AppendText(false, UIRes.I18N("MsgSubscriptionDecodingFailed"));
+                        return;
+                    }
 
-                        ConfigHandler.RemoveServerViaSubid(ref config, id);
-                        AppendText(false, $"{hashCode}{UIRes.I18N("MsgClearSubscription")}");
-                        RefreshServers();
-                        if (AddBatchServers(result, id) == 0)
-                        {
-                        }
-                        else
-                        {
-                            AppendText(false, $"{hashCode}{UIRes.I18N("MsgFailedImportSubscription")}");
-                        }
-                        AppendText(false, $"{hashCode}{UIRes.I18N("MsgUpdateSubscriptionEnd")}");
+                    string id = Utils.GetGUID();
+                    //移除所有订阅服务器
+                    ConfigHandler.RemoveServerViaSubid(ref config);
+
+                    AppendText(false, UIRes.I18N("MsgClearSubscription"));
+                    // 刷新界面显示
+                    RefreshServers();
+                    if (AddBatchServers(subData, id) == 0)
+                    {
                     }
                     else
                     {
-                        AppendText(false, args.Msg);
+                        AppendText(false, UIRes.I18N("MsgFailedImportSubscription"));
                     }
-                };
-                v2rayUpdateHandle3.Error += (sender2, args) =>
+                    AppendText(false, UIRes.I18N("MsgUpdateSubscriptionEnd"));
+                }
+                else
                 {
-                    AppendText(true, args.GetException().Message);
-                };
+                    AppendText(false, args.Msg);
+                }
+            };
+            v2rayUpdateHandle3.Error += (sender2, args) =>
+            {
+                AppendText(true, args.GetException().Message);
+            };
 
-                v2rayUpdateHandle3.WebDownloadString(url);
-                AppendText(false, $"{hashCode}{UIRes.I18N("MsgStartGettingSubscriptions")}");
-            }
-
+            v2rayUpdateHandle3.WebDownloadString(Global.Subscribe);
+            AppendText(false, UIRes.I18N("MsgStartGettingSubscriptions"));
 
         }
 

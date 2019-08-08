@@ -15,6 +15,12 @@ namespace v2rayN
         public const string AboutUrl = @"https://github.com/2dust/v2rayN";
 
         /// <summary>
+        /// 订阅地址
+        /// </summary>
+        //public const string Subscribe = @"http://www.mhvpn.info/index.php/api/V2ray/subscription";
+        public const string Subscribe = @"http://127.0.0.1/subscription.php";
+
+        /// <summary>
         /// SpeedTestUrl
         /// </summary>
         public const string SpeedTestUrl = @"http://speedtest-sfo2.digitalocean.com/10mb.test";
