@@ -250,6 +250,12 @@
   <data name="menuExport2SubContent.Text" xml:space="preserve">
     <value>批量导出订阅内容至剪贴板(多选)</value>
   </data>
+  <data name="tsbServer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 53</value>
+  </data>
+  <data name="tsbServer.Text" xml:space="preserve">
+    <value>  服务器  </value>
+  </data>
   <data name="cmsLv.Size" type="System.Drawing.Size, System.Drawing">
     <value>253, 468</value>
   </data>
@@ -269,12 +275,6 @@
         ////GFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQEAAAAHdmFsdWVfXwAIAwAAAAAAAAAF9v///xtTeXN0
         ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQBAAAAB3ZhbHVlX18ACAMAAAADAAAACw==
 </value>
-  </data>
-  <data name="tsbServer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 53</value>
-  </data>
-  <data name="tsbServer.Text" xml:space="preserve">
-    <value>  服务器  </value>
   </data>
   <data name="menuSysAgentEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 22</value>
@@ -390,12 +390,6 @@
   <data name="tsbReload.Text" xml:space="preserve">
     <value>  重启服务  </value>
   </data>
-  <data name="tsbCheckUpdateN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 22</value>
-  </data>
-  <data name="tsbCheckUpdateN.Text" xml:space="preserve">
-    <value>检查更新v2rayN</value>
-  </data>
   <data name="tsbCheckUpdateCore.Size" type="System.Drawing.Size, System.Drawing">
     <value>232, 22</value>
   </data>
@@ -429,14 +423,10 @@
   <data name="tsbHelp.Text" xml:space="preserve">
     <value>   帮助   </value>
   </data>
-  <data name="tsbClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAySURBVFhH7c6xDQAgCEVBRnVTHU2ZABuMxV3yOvJDAAA/
-        GqfZVG6X8mg1dfUAAPBQxAZd0SJruVXHWwAAAABJRU5ErkJggg==
-</value>
+  <data name="tsbClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 53</value>
   </data>
   <data name="tsbClose.Text" xml:space="preserve">
-    <value>  关闭  </value>
+    <value>退出</value>
   </data>
 </root>

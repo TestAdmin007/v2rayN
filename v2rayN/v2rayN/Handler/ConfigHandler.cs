@@ -146,6 +146,8 @@ namespace v2rayN.Handler
         {
             vmessItem.configVersion = 2;
             vmessItem.configType = (int)EConfigType.Vmess;
+
+            //return 0;
             if (index >= 0)
             {
                 //修改
@@ -692,7 +694,6 @@ namespace v2rayN.Handler
             //    clipboardData = clipboardData.Replace("\r\n", "").Replace("\n", "");
             //}
             int countServers = 0;
-
             //string[] arrData = clipboardData.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             string[] arrData = clipboardData.Split(Environment.NewLine.ToCharArray());
             foreach (string str in arrData)
@@ -705,6 +706,7 @@ namespace v2rayN.Handler
                     continue;
                 }
                 vmessItem.subid = subid;
+
                 if (vmessItem.configType == (int)EConfigType.Vmess)
                 {
                     if (AddServer(ref config, vmessItem, -1) == 0)

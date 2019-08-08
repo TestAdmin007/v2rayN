@@ -91,6 +91,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.text_login_username);
             this.Name = "LoginForm";
+            this.Text = "请先登录";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

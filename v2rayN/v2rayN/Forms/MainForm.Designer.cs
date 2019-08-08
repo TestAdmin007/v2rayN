@@ -81,14 +81,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tsMain = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbOptionSetting = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbReload = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCheckUpdate = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbCheckUpdateN = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbCheckUpdateCore = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbCheckUpdatePACList = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbCheckClearPACList = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,6 +174,7 @@
             this.menuExport2ShareUrl,
             this.menuExport2SubContent});
             this.cmsLv.Name = "cmsLv";
+            this.cmsLv.OwnerItem = this.tsbServer;
             // 
             // menuAddVmessServer
             // 
@@ -492,17 +492,17 @@
             resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             // 
-            // toolStripSeparator8
-            // 
-            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            // 
             // toolStripButton1
             // 
             resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
             this.toolStripButton1.Image = global::v2rayN.Properties.Resources.sub;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.tsbSubUpdate_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
             // 
             // tsbOptionSetting
             // 
@@ -531,18 +531,11 @@
             // 
             resources.ApplyResources(this.tsbCheckUpdate, "tsbCheckUpdate");
             this.tsbCheckUpdate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbCheckUpdateN,
             this.tsbCheckUpdateCore,
             this.tsbCheckUpdatePACList,
             this.tsbCheckClearPACList});
             this.tsbCheckUpdate.Image = global::v2rayN.Properties.Resources.checkupdate;
             this.tsbCheckUpdate.Name = "tsbCheckUpdate";
-            // 
-            // tsbCheckUpdateN
-            // 
-            resources.ApplyResources(this.tsbCheckUpdateN, "tsbCheckUpdateN");
-            this.tsbCheckUpdateN.Name = "tsbCheckUpdateN";
-            this.tsbCheckUpdateN.Click += new System.EventHandler(this.tsbCheckUpdateN_Click);
             // 
             // tsbCheckUpdateCore
             // 
@@ -609,6 +602,7 @@
             // tsbClose
             // 
             resources.ApplyResources(this.tsbClose, "tsbClose");
+            this.tsbClose.Image = global::v2rayN.Properties.Resources.exit;
             this.tsbClose.Name = "tsbClose";
             this.tsbClose.Click += new System.EventHandler(this.tsbClose_Click);
             // 
@@ -692,7 +686,6 @@
         private QRCodeControl qrCodeControl;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripDropDownButton tsbCheckUpdate;
-        private System.Windows.Forms.ToolStripMenuItem tsbCheckUpdateN;
         private System.Windows.Forms.ToolStripMenuItem tsbCheckUpdateCore;
         private System.Windows.Forms.ToolStripMenuItem tsbCheckUpdatePACList;
         private System.Windows.Forms.ToolStripMenuItem menuAddServers;

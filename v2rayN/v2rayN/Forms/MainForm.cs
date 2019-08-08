@@ -33,6 +33,7 @@ namespace v2rayN.Forms
                 Utils.ClearTempPath();
             };
 
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -42,7 +43,9 @@ namespace v2rayN.Forms
             v2rayHandler.ProcessEvent += v2rayHandler_ProcessEvent;
 
             this.tsbSubUpdate_Click(sender, e);
-            this.login();
+
+            //FIXME 修改时间失败
+            //Console.WriteLine(UpdateLocalTime.SetDate(NetTime.GetBeijingTime()));
 
         }
 
@@ -590,7 +593,11 @@ namespace v2rayN.Forms
 
         private void tsbClose_Click(object sender, EventArgs e)
         {
-            HideForm();
+
+            config.user.token = "";
+            ConfigHandler.RemoveServerViaSubid(ref config);
+            RefreshServers();
+            //HideForm();
             //this.WindowState = FormWindowState.Minimized;
         }
 
@@ -1129,6 +1136,12 @@ namespace v2rayN.Forms
 
         private void tsbCheckUpdateCore_Click(object sender, EventArgs e)
         {
+            //下载 V2ray-code 先关闭系统代理
+            var isAgentEnable = config.sysAgentEnabled;
+            if (isAgentEnable) {
+                ChangeSysAgent(false);
+            }
+
             if (v2rayUpdateHandle == null)
             {
                 v2rayUpdateHandle = new V2rayUpdateHandle();
@@ -1144,6 +1157,7 @@ namespace v2rayN.Forms
 
                             if (UI.ShowYesNo(string.Format(UIRes.I18N("DownloadYesNo"), url)) == DialogResult.No)
                             {
+                                ChangeSysAgent(isAgentEnable);
                                 return;
                             }
                             else
@@ -1321,9 +1335,10 @@ namespace v2rayN.Forms
                     SubResponse result = Utils.FromJson<SubResponse>(args.Msg);
 
                     if (result.status != "SUCCESS") {
-                        Console.WriteLine(result.msg);
-                        Console.WriteLine(UIRes.I18N("MsgSubscriptionDecodingFailed"));
-                        //AppendText(false, result.msg);
+                        login(); //引导去登录
+                    
+                        AppendText(false, result.msg);
+
                     }
 
                     var subData = Utils.Base64Decode(result.data.data);
@@ -1334,7 +1349,7 @@ namespace v2rayN.Forms
                         return;
                     }
 
-                    string id = Utils.GetGUID();
+                    var id = Utils.GetGUID();
                     //移除所有订阅服务器
                     ConfigHandler.RemoveServerViaSubid(ref config);
 

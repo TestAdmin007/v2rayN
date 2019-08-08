@@ -17,8 +17,12 @@ namespace v2rayN
         /// <summary>
         /// 订阅地址
         /// </summary>
-        //public const string Subscribe = @"http://www.mhvpn.info/index.php/api/V2ray/subscription";
-        public const string Subscribe = @"http://127.0.0.1/subscription.php";
+        public const string Subscribe = @"http://www.mhvpn.info/index.php/api/V2ray/subscription";
+
+        /// <summary>
+        /// 用户登录地址
+        /// </summary>
+        public const string Login = @"http://www.mhvpn.info/index.php/api/V2ray/login";
 
         /// <summary>
         /// SpeedTestUrl

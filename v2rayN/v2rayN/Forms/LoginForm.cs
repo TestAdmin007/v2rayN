@@ -58,12 +58,12 @@ namespace v2rayN.Forms
                 password = config.user.password;
             }
             else {
-                password = Utils.md5(password.Trim()).ToUpper();
+                password = password.Trim();
             }
 
             V2rayUpdateHandle LoginPost = new V2rayUpdateHandle();
 
-            LoginPost.WebLogin("http://127.0.0.1/index.php", username, password);
+            LoginPost.WebLogin(Global.Login, username, password);
 
             LoginPost.LoginCompleted += (serder2, args) =>
             {
@@ -96,5 +96,9 @@ namespace v2rayN.Forms
             };
         }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

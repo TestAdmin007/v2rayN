@@ -315,13 +315,16 @@ namespace v2rayN.Mode
             {
                 return subRemarks;
             }
-            foreach (SubItem sub in config.subItem)
-            {
-                if (sub.id.EndsWith(subid))
+            if (config.subItem != null) {
+                foreach (SubItem sub in config.subItem)
                 {
-                    return sub.remarks;
+                    if (sub.id.EndsWith(subid))
+                    {
+                        return sub.remarks;
+                    }
                 }
             }
+
             if (subid.Length <= 4)
             {
                 return subid;

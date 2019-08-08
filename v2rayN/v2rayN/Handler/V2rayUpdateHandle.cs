@@ -229,7 +229,7 @@ namespace v2rayN.Handler
                 WebClientEx ws = new WebClientEx();
 
                 var reqParams = new System.Collections.Specialized.NameValueCollection();
-                reqParams.Add("username", username);
+                reqParams.Add("account", username);
                 reqParams.Add("password", pwd);
 
                 ws.UploadValuesCompleted += Ws_login_completed;

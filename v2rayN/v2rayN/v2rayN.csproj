@@ -73,6 +73,9 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>v2rayN.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>.\Newtonsoft.Json.dll</HintPath>
@@ -148,6 +151,7 @@
     <Compile Include="Forms\SubSettingControl.Designer.cs">
       <DependentUpon>SubSettingControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Handler\UpdateLocalTime.cs" />
     <Compile Include="Handler\V2rayUpdateHandle.cs" />
     <Compile Include="HttpProxyHandler\HttpWebServer.cs" />
     <Compile Include="HttpProxyHandler\PACFileWatcherHandle.cs" />
@@ -163,6 +167,11 @@
     <Compile Include="Mode\SubResponse.cs" />
     <Compile Include="Mode\SysproxyConfig.cs" />
     <Compile Include="Mode\EConfigType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resx\ResUI.zh-Hans.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -287,14 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="app.config">
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -381,6 +385,7 @@
     <None Include="Resources\sub.png" />
     <None Include="Resources\checkupdate.png" />
     <None Include="Resources\about.png" />
+    <None Include="Resources\exit.png" />
     <Content Include="Resources\help.png" />
     <Content Include="Resources\privoxy_conf.txt" />
     <EmbeddedResource Include="zxing.presentation.dll" />

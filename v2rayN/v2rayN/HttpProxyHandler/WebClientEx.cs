@@ -27,8 +27,9 @@ namespace v2rayN.HttpProxyHandler
             var request = base.GetWebRequest(address);
             request.Timeout = Timeout;
 
-            if (config.user != null && config.user.token != null && !Utils.IsNullOrEmpty(config.user.token)) {
-                request.Headers.Add("Authorization", "Bearer " + config.user.token);
+            if (config.user != null && config.user.token != null && !Utils.IsNullOrEmpty(config.user.token))
+            {
+                request.Headers.Add("Authorization", config.user.token);
             }
             return request;
         }
