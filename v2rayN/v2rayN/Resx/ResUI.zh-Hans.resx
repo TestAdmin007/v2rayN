@@ -328,4 +328,7 @@
   <data name="MsgLoginUserNameAndPasswordNotMatch" xml:space="preserve">
     <value>用户名和密码不匹配</value>
   </data>
+  <data name="NotFoundV2rayCore" xml:space="preserve">
+    <value>没有发现V2rayCore即将下载</value>
+  </data>
 </root>

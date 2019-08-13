@@ -149,6 +149,26 @@ namespace v2rayN.Handler
             }
         }
 
+        public bool CheckHasV2rayCore() {
+            string fileName = string.Empty;
+            for (int k = 0; k < lstV2ray.Count; k++)
+            {
+                string vName = string.Format("{0}.exe", lstV2ray[k]);
+                vName = Utils.GetPath(vName);
+                if (File.Exists(vName))
+                {
+                    fileName = vName;
+                    break;
+                }
+            }
+            if (Utils.IsNullOrEmpty(fileName))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// 消息委托
         /// </summary>

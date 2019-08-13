@@ -328,4 +328,7 @@
   <data name="MsgLoginUserNameAndPasswordNotMatch" xml:space="preserve">
     <value>User name and password do not match</value>
   </data>
+  <data name="NotFoundV2rayCore" xml:space="preserve">
+    <value>No v2ray core was found to be downloaded soon.</value>
+  </data>
 </root>

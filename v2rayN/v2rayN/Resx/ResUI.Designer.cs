@@ -556,6 +556,15 @@ namespace v2rayN.Resx {
         }
         
         /// <summary>
+        ///   查找类似 No v2ray core was found to be downloaded soon. 的本地化字符串。
+        /// </summary>
+        internal static string NotFoundV2rayCore {
+            get {
+                return ResourceManager.GetString("NotFoundV2rayCore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Scan completed, no valid QR code found 的本地化字符串。
         /// </summary>
         internal static string NoValidQRcodeFound {

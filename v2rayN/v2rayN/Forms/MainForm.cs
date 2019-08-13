@@ -44,6 +44,11 @@ namespace v2rayN.Forms
 
             this.tsbSubUpdate_Click(sender, e);
 
+            if (!v2rayHandler.CheckHasV2rayCore()) {
+                AppendText(true, UIRes.I18N("NotFoundV2rayCore"));
+                tsbCheckUpdateCore_Click(sender, e);
+            }
+
             //FIXME 修改时间失败
             //Console.WriteLine(UpdateLocalTime.SetDate(NetTime.GetBeijingTime()));
 
@@ -1136,11 +1141,8 @@ namespace v2rayN.Forms
 
         private void tsbCheckUpdateCore_Click(object sender, EventArgs e)
         {
-            //下载 V2ray-code 先关闭系统代理
-            var isAgentEnable = config.sysAgentEnabled;
-            if (isAgentEnable) {
-                ChangeSysAgent(false);
-            }
+            //修改为PAC代理模式
+            menuGlobalPAC_Click(sender, e);
 
             if (v2rayUpdateHandle == null)
             {
@@ -1157,7 +1159,6 @@ namespace v2rayN.Forms
 
                             if (UI.ShowYesNo(string.Format(UIRes.I18N("DownloadYesNo"), url)) == DialogResult.No)
                             {
-                                ChangeSysAgent(isAgentEnable);
                                 return;
                             }
                             else
@@ -1314,6 +1315,9 @@ namespace v2rayN.Forms
 
         public void tsbSubUpdate_Click(object sender, EventArgs e)
         {
+            // 修改为PAC代理模式
+            menuGlobalPAC_Click(sender, e);
+
             //打出开始订阅
             AppendText(false, UIRes.I18N("MsgUpdateSubscriptionStart"));
 
